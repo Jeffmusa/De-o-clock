@@ -9,7 +9,7 @@ class Cake(models.Model):
     description = models.TextField(null=True)
     price = models.IntegerField(null=True)
     objects = models.Manager()
-    # Admin Foreign key
+    
     def __str__(self):
         return self.name
 
