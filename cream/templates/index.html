@@ -1,0 +1,53 @@
+{% extends 'base.html'%} {% load bootstrap4 %} {% load staticfiles %} {{form.media}}
+{{ block.super }}
+ 
+ {% block content %}
+
+
+
+<div class="container">
+
+    <div class="row">
+    {% for cake in cake %}
+        <div class="col-md-4">
+            <br>
+            <div class="card border-secondary">
+                <div class="card-body" style="background-color:#e9f0f5;">
+                    <h4 class="card-title"><div class="text-center">{{cake.name }}</div></h4>
+                    <div class="text-center">
+
+                        <img src="" id="img">
+                    </div>
+                    <h6 class="card-title">Description: {{cake.description | upper}}</h6>
+                    <h5 class="card-title">Price: Ksh:{{cake.price | upper}}.00</h5>
+
+                    <div class="text-right">
+                        <!-- <a href="/profiles/{{hood.user.id}}/{{hood.user.username}}"><em> #hoodby{{hood.user.username }} </em></a> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+        </div>
+        <style>
+            img{
+                height:200px;
+                width: 280px;
+
+            }
+
+                
+            @media screen and (max-width: 1000px) {
+              .container {
+                background-color: rgb(230, 104, 20);
+              }
+              img{
+                  height:150px;
+                  width: 200px;
+              }
+            }
+            </style>
+    {% endblock %}
