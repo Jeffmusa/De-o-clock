@@ -6,10 +6,13 @@
  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
- <!------ Include the above in your HEAD tag ---------->
- 
- <!--Pulling Awesome Font -->
+ <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+ <!-- <script>
+    UPLOADCARE_PUBLIC_KEY = 'a6ce1fa1d8e2e82fde95';
+    UPLOADCARE_IMAGES_ONLY = true;
+  </script> -->
+  
  
 <div class="container-fluid">
 
@@ -22,10 +25,10 @@
                     <h4 class="card-title"><div class="text-center">{{cake.name }}</div></h4>
                     <div class="text-center">
 
-                        <img src="" id="img">
+                        <img src="{{cake.photo}}" id="img">
                     </div>
-                    <h6 class="card-title">Description: {{cake.description | lower}}</h6>
-                    <h5 class="card-title">Price: Ksh:{{cake.price | upper}}.00</h5>
+                    <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
+                    <h5 class="card-title"><b>  Price: Ksh:{{cake.price}}.00</b></h5>
 
                     <div class="text-right">
                         <!-- <a href="/profiles/{{hood.user.id}}/{{hood.user.username}}"><em> #hoodby{{hood.user.username }} </em></a> -->
@@ -37,9 +40,10 @@
 
         {% endfor %}
     </div>
+    <hr>
     <div class="text-center">
             <ul class="social-network social-circle">
-                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                <li><a href="#" class="icoRss" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                 <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
@@ -48,8 +52,8 @@
         </div>
         <style>
             img{
-                height:200px;
-                width: 280px;
+                height:280px;
+                width: 300px;
 
             }
             .container{
