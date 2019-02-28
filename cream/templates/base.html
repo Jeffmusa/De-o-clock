@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <link rel="shortcut icon" href="http://www.freepngclipart.com/download/cake/4345-8th-birthday-cake-happy-birthday-clip-2.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1"> {% block styles %} {% bootstrap_css %}
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> {% endblock %}
@@ -14,19 +15,10 @@
 
 <body>
 
+    <!-- {% include "navbar.html" %} -->
     {% block content %} {% endblock %} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% bootstrap_javascript %}
     <script src="main.js"></script> {% endblock %}
 </body>
 
 </html>
-<style>
-    /* body{
-       
-    }
-@media screen and (max-width: 1280px) {
-  body {
-    background-color: rgb(143, 139, 158);
-  }
-} */
-</style>

@@ -1,0 +1,121 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<header>
+    <nav>
+        <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
+        <div class="logo">
+            De cake o'clock
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a id="n" href="/">Home</a></li>
+                <li><a id="n" href="/about">About</a></li>
+                <li><a id="n" href="#">Blog</a></li>
+                <li><a id="n" href="#">Contact</a></li>
+                <li><a id="n" href="#">Contact</a></li>
+                <li><a id="n" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    $(document).ready(function () {
+        $(".menu-icon").on("click", function () {
+            $("nav ul").toggleClass("showing");
+        });
+    });
+
+    // Scrolling Effect
+
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            $('nav').addClass('black');
+        }
+
+        else {
+            $('nav').removeClass('black');
+        }
+    })
+</script>
+
+<style>
+    #n {
+        text-decoration: none;
+    }
+
+    #n:hover {
+        color: rgb(24, 189, 32);
+
+    }
+
+    .logo {
+        line-height: 60px;
+        position: fixed;
+        float: left;
+        margin: 16px 46px;
+        color: rgb(134, 211, 9);
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        position: fixed;
+        width: 100%;
+        line-height: 60px;
+        z-index: 1;
+    }
+
+    nav ul {
+        line-height: 60px;
+        list-style: none;
+        background: rgba(241, 23, 23, 0);
+        overflow: hidden;
+        color: #fff;
+        padding: 0;
+        text-align: right;
+        margin: 0;
+        padding-right: 40px;
+        transition: 1s;
+    }
+
+    nav.black ul {
+        background: rgb(0, 0, 0);
+    }
+
+    nav ul li {
+        display: inline-block;
+        padding: 16px 40px;
+        ;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .menu-icon {
+        line-height: 60px;
+        width: 100%;
+        background: #000;
+        text-align: right;
+        box-sizing: border-box;
+        padding: 15px 24px;
+        cursor: pointer;
+        color: #fff;
+        display: none;
+    }
+</style>

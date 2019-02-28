@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cake,C1,C2,C3
+from .models import Cake,C1,C2,C3,About
 from django.shortcuts import render, redirect
 from .forms import PostForm
 
@@ -22,10 +22,11 @@ from .forms import PostForm
 
 # # Create your views here.
 def index(request):
+    about = About.objects.all()
     cake = Cake.objects.all()
     c1= C1.objects.all()
     c2= C2.objects.all()
     c3= C3.objects.all()
-    return render(request,'index.html',{"cake":cake,"c1":c1,"c2":c2,"c3":c3})
+    return render(request,'index.html',{"cake":cake,"c1":c1,"c2":c2,"c3":c3,"about":about})
  
-    
+

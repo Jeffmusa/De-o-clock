@@ -72,3 +72,18 @@ class C3(models.Model):
 
     def delete_carousel(self):
         self.delete()
+
+class About(models.Model):
+    photo = ImageField(blank=True, manual_crop="")
+    about = models.TextField(null=True)
+    objects = models.Manager()
+    
+    def __str__(self):
+        return self.about
+
+
+    def save_about(self):
+        self.save()
+
+    def delete_about(self):
+        self.delete()
