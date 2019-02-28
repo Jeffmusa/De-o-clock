@@ -1,34 +1,85 @@
-{% extends 'base.html'%} {% load bootstrap4 %} {% load staticfiles %} {{form.media}}
-{{ block.super }}
- 
- {% block content %}
+{% extends 'base.html'%} {% load bootstrap4 %} {% load staticfiles %} {{form.media}} {{ block.super }} {% block content %}
 
- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
- <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
- <!-- <script>
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- <script>
     UPLOADCARE_PUBLIC_KEY = 'a6ce1fa1d8e2e82fde95';
     UPLOADCARE_IMAGES_ONLY = true;
-  </script> -->
-  
- 
+</script> -->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="carousel fade-carousel carousel-fade slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+        
+    </ol>
+    
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+            {% for caro in c1 %}
+        <div class="item slides active">
+            <div class="slide-1" style="background-image: url('{{ caro.photo }}')"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>{{caro.text}}</h1>
+                    <h3>{{caro.more}}</h3>
+                </hgroup>
+            </div>
+        </div>
+        {% endfor %}
+        {% for caro in c2 %}
+        <div class="item slides">
+            <div class="slide-2" style="background-image: url('{{ caro.photo }}')"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>{{caro.text}}</h1>
+                    <h3>{{caro.more}}</h3>
+                </hgroup>
+            </div>
+        </div>
+        {% endfor %}
+        {% for caro in c3 %}
+        <div class="item slides">
+            <div class="slide-3" style="background-image: url('{{ caro.photo }}')"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>{{caro.text}}</h1>
+                    <h3>{{caro.more}}</h3>
+                </hgroup>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 <div class="container-fluid">
 
     <div class="row">
-    {% for cake in cake %}
+        {% for cake in cake %}
         <div class="col-md-4">
             <br>
             <div class="card border-secondary">
                 <div class="card-body" style="background-color:#e9f0f5;">
-                    <h4 class="card-title"><div class="text-center">{{cake.name }}</div></h4>
+                    <h4 class="card-title">
+                        <div class="text-center">{{cake.name }}</div>
+                    </h4>
                     <div class="text-center">
 
                         <img src="{{cake.photo}}" id="img">
                     </div>
                     <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
-                    <h5 class="card-title"><b>  Price: Ksh:{{cake.price}}.00</b></h5>
+                    <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
 
                     <div class="text-right">
                         <!-- <a href="/profiles/{{hood.user.id}}/{{hood.user.username}}"><em> #hoodby{{hood.user.username }} </em></a> -->
@@ -42,120 +93,289 @@
     </div>
     <hr>
     <div class="text-center">
-            <ul class="social-network social-circle">
-                <li><a href="#" class="icoRss" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-            </ul>				
-        </div>
-        <style>
-            img{
-                height:280px;
-                width: 300px;
+        <ul class="social-network social-circle">
+            <li><a href="#" class="icoRss" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </div>
 
-            }
-            .container{
-                background-color: aqua;
-            }
 
-                
-            @media screen and (max-width: 1000px) {
-              .container-fluid {
+    <style>
+        .carousel-fade .carousel-inner .item {
+            opacity: 0;
+            -webkit-transition-property: opacity;
+            -moz-transition-property: opacity;
+            -o-transition-property: opacity;
+            transition-property: opacity;
+        }
+
+        .carousel-fade .carousel-inner .active {
+            opacity: 1;
+        }
+
+        .carousel-fade .carousel-inner .active.left,
+        .carousel-fade .carousel-inner .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .carousel-fade .carousel-inner .next.left,
+        .carousel-fade .carousel-inner .prev.right {
+            opacity: 1;
+        }
+
+        .carousel-fade .carousel-control {
+            z-index: 2;
+        }
+
+        .fade-carousel {
+            position: relative;
+            height: 100vh;
+        }
+
+        .fade-carousel .carousel-inner .item {
+            height: 100vh;
+        }
+
+        .fade-carousel .carousel-indicators>li {
+            margin: 0 2px;
+            background-color: #f39c12;
+            border-color: #f39c12;
+            opacity: .7;
+        }
+
+        .fade-carousel .carousel-indicators>li.active {
+            width: 10px;
+            height: 10px;
+            opacity: 1;
+        }
+
+        /********************************/
+        /*          Hero Headers        */
+        /********************************/
+        .hero {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 3;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, .75);
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            -moz-transform: translate3d(-50%, -50%, 0);
+            -ms-transform: translate3d(-50%, -50%, 0);
+            -o-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+        .hero h1 {
+            font-size: 6em;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+
+        .fade-carousel .carousel-inner .item .hero {
+            opacity: 0;
+            -webkit-transition: 2s all ease-in-out .1s;
+            -moz-transition: 2s all ease-in-out .1s;
+            -ms-transition: 2s all ease-in-out .1s;
+            -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+        }
+
+        .fade-carousel .carousel-inner .item.active .hero {
+            opacity: 1;
+            -webkit-transition: 2s all ease-in-out .1s;
+            -moz-transition: 2s all ease-in-out .1s;
+            -ms-transition: 2s all ease-in-out .1s;
+            -o-transition: 2s all ease-in-out .1s;
+            transition: 2s all ease-in-out .1s;
+        }
+
+        /********************************/
+        /*            Overlay           */
+        /********************************/
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-color: #080d15;
+            opacity: .7;
+        }
+
+        /********************************/
+        /*          Custom Buttons      */
+        /********************************/
+     
+
+        /********************************/
+        /*       Slides backgrounds     */
+        /********************************/
+        .fade-carousel .slides .slide-1,
+        .fade-carousel .slides .slide-2,
+        .fade-carousel .slides .slide-3 {
+            height: 100vh;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* .fade-carousel .slides .slide-1 {
+            background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+        }
+
+        .fade-carousel .slides .slide-2 {
+            background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+        }
+
+        .fade-carousel .slides .slide-3 {
+            background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
+        } */
+
+        /********************************/
+        /*          Media Queries       */
+        /********************************/
+        @media screen and (min-width: 980px) {
+            .hero {
+                width: 980px;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .hero h1 {
+                font-size: 4em;
+            }
+        }
+
+        img {
+            height: 280px;
+            width: 300px;
+
+        }
+
+        .container {
+            background-color: aqua;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            .container-fluid {
                 background-color: rgb(230, 104, 20);
-              }
-              img{
-                  height:150px;
-                  width: 180px;
-              }
             }
-          
+            img {
+                height: 150px;
+                width: 180px;
+            }
+        }
 
-/*=========================
+
+        /*=========================
   Icons
  ================= */
 
-/* footer social icons */
-ul.social-network {
-	list-style: none;
-	display: inline;
-	margin-left:0 !important;
-	padding: 0;
-}
-ul.social-network li {
-	display: inline;
-	margin: 0 5px;
-}
+        /* footer social icons */
+        ul.social-network {
+            list-style: none;
+            display: inline;
+            margin-left: 0 !important;
+            padding: 0;
+        }
+
+        ul.social-network li {
+            display: inline;
+            margin: 0 5px;
+        }
 
 
-/* footer social icons */
-.social-network a.icoRss:hover {
-	background-color: #F56505;
-}
-.social-network a.icoFacebook:hover {
-	background-color:#3B5998;
-}
-.social-network a.icoTwitter:hover {
-	background-color:#33ccff;
-}
-.social-network a.icoGoogle:hover {
-	background-color:#BD3518;
-}
-.social-network a.icoVimeo:hover {
-	background-color:#0590B8;
-}
-.social-network a.icoLinkedin:hover {
-	background-color:#007bb7;
-}
-.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
-	color:#fff;
-}
-a.socialIcon:hover, .socialHoverClass {
-	color:#44BCDD;
-}
+        /* footer social icons */
+        .social-network a.icoRss:hover {
+            background-color: rgb(231, 19, 203);
+        }
 
-.social-circle li a {
-	display:inline-block;
-	position:relative;
-	margin:0 auto 0 auto;
-	-moz-border-radius:50%;
-	-webkit-border-radius:50%;
-	border-radius:50%;
-	text-align:center;
-	width: 50px;
-	height: 50px;
-	font-size:20px;
-}
-.social-circle li i {
-	margin:0;
-	line-height:50px;
-	text-align: center;
-}
+        .social-network a.icoFacebook:hover {
+            background-color: #3B5998;
+        }
 
-.social-circle li a:hover i, .triggeredHover {
-	-moz-transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-ms--transform: rotate(360deg);
-	transform: rotate(360deg);
-	-webkit-transition: all 0.2s;
-	-moz-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	-ms-transition: all 0.2s;
-	transition: all 0.2s;
-}
-.social-circle i {
-	color: #fff;
-	-webkit-transition: all 0.8s;
-	-moz-transition: all 0.8s;
-	-o-transition: all 0.8s;
-	-ms-transition: all 0.8s;
-	transition: all 0.8s;
-}
+        .social-network a.icoTwitter:hover {
+            background-color: #33ccff;
+        }
 
-a {
- background-color: rgb(185, 174, 174);   
-}
-            </style>
+        .social-network a.icoGoogle:hover {
+            background-color: #BD3518;
+        }
+
+        .social-network a.icoVimeo:hover {
+            background-color: #0590B8;
+        }
+
+        .social-network a.icoLinkedin:hover {
+            background-color: #007bb7;
+        }
+
+        .social-network a.icoRss:hover i,
+        .social-network a.icoFacebook:hover i,
+        .social-network a.icoTwitter:hover i,
+        .social-network a.icoGoogle:hover i,
+        .social-network a.icoVimeo:hover i,
+        .social-network a.icoLinkedin:hover i {
+            color: #fff;
+        }
+
+        a.socialIcon:hover,
+        .socialHoverClass {
+            color: #44BCDD;
+        }
+
+        .social-circle li a {
+            display: inline-block;
+            position: relative;
+            margin: 0 auto 0 auto;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .social-circle li i {
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .social-circle li a:hover i,
+        .triggeredHover {
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -ms--transform: rotate(360deg);
+            transform: rotate(360deg);
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+
+        .social-circle i {
+            color: #fff;
+            -webkit-transition: all 0.8s;
+            -moz-transition: all 0.8s;
+            -o-transition: all 0.8s;
+            -ms-transition: all 0.8s;
+            transition: all 0.8s;
+        }
+
+        a {
+            background-color: rgb(185, 174, 174);
+        }
+    </style>
     {% endblock %}
