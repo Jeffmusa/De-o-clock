@@ -6,10 +6,25 @@ from pyuploadcare.dj.models import ImageField
 
 
 # Create your models here.
+class Type(models.Model): 
+    name = models.CharField(max_length =30,null=True)
+    objects = models.Manager()
+
+   
+    
+    def __str__(self):
+        return self.name
+
+
+    def save_type(self):
+        self.save()
+
+    def delete_type(self):
+        self.delete()
 
 class Cake(models.Model):
+    Type = models.ManyToManyField(Type,related_name='cake_type')
     photo = ImageField(blank=True, manual_crop="")
-    # image = models.ImageField(upload_to = 'images/',null=True)
     name = models.CharField(max_length =30,null=True)
     description = models.TextField(null=True)
     price = models.IntegerField(null=True)
@@ -24,6 +39,7 @@ class Cake(models.Model):
 
     def delete_cake(self):
         self.delete()
+
 
 class C1(models.Model):
     photo = ImageField(blank=True, manual_crop="")

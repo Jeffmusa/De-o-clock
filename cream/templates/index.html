@@ -4,6 +4,12 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
 <!-- <script>
     UPLOADCARE_PUBLIC_KEY = 'a6ce1fa1d8e2e82fde95';
     UPLOADCARE_IMAGES_ONLY = true;
@@ -26,11 +32,10 @@
         <div class="menu">
             <ul>
                 <li><a id="n" href="#">Home</a></li>
-                <li><a id="n" href="/about">About</a></li>
+                <li><a id="n" href="#about">About</a></li>
                 <li><a id="n" href="#">Blog</a></li>
                 <li><a id="n" href="#">Contact</a></li>
-                <li><a id="n" href="#">Contact</a></li>
-                <li><a id="n" href="#">Contact</a></li>
+                
             </ul>
         </div>
     </nav>
@@ -55,8 +60,8 @@
             <div class="slide-1" style="background-image: url('{{ caro.photo }}')"></div>
             <div class="hero">
                 <hgroup>
-                    <h1>{{caro.text}}</h1>
-                    <h3>{{caro.more}}</h3>
+                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                    <h3 class="more">{{caro.more}}</h3>
                 </hgroup>
             </div>
         </div>
@@ -65,8 +70,8 @@
             <div class="slide-2" style="background-image: url('{{ caro.photo }}')"></div>
             <div class="hero">
                 <hgroup>
-                    <h1>{{caro.text}}</h1>
-                    <h3>{{caro.more}}</h3>
+                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                    <h3 class="more">{{caro.more}}</h3>
                 </hgroup>
             </div>
         </div>
@@ -75,17 +80,51 @@
             <div class="slide-3" style="background-image: url('{{ caro.photo }}')"></div>
             <div class="hero">
                 <hgroup>
-                    <h1>{{caro.text}}</h1>
-                    <h3>{{caro.more}}</h3>
+                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                    <h3 class="more">{{caro.more}}</h3>
                 </hgroup>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-<div class="container-fluid">
 
+<div class="container-fluid">
+        <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu4">Call to order</a>
+                      </li>
+              </ul>
+            
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+                  <h3>HOME</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div id="menu1" class="container tab-pane fade"><br>
+                  <h3>Menu 1</h3>
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div id="menu2" class="container tab-pane fade"><br>
+                  <h3>Menu 2</h3>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="menu4" class="container tab-pane fade"><br>
+                    <h3>Contacts</h3>
+<h1 class="text-center">+254 7891 223 669</h1>                  </div>
+              </div>
     <div class="row">
+        
         {% for cake in cake %}
         <div class="col-md-4">
             <br>
@@ -111,18 +150,22 @@
         {% endfor %}
     </div>
     <hr>
+    <div class="ab">
     <div class="text-center">
         <h1>About us</h1>
     </div>
     {% for i in about %}
+    <div class="container" id="about">
+        <div class="text-center" >
+            <img src="{{i.photo}}" alt="" style="border-radius:50%; height: 80px; width: 80px;">
+        </div>
+    </div>
     <div class="text-center">
-    <img src="{{i.photo}}" alt="" style="border-radius:50%; height: 70px; width: 70px;">
-</div>
-        <div class="text-center">
         {{i.about}}
     </div>
-        {% endfor %}
-    
+    {% endfor %}
+</div>
+
     <hr>
     <div class="text-center">
         <ul class="social-network social-circle">
@@ -154,13 +197,26 @@
     </script>
 
     <style>
+        .ab{
+            font-size: 18px;
+            background-size: cover;
+          
+        }
+
+        .more{
+            font-family: 'Caveat Brush', cursive;
+        }
+        #menu {
+            z-index: -1;
+        }
+
         #n {
             text-decoration: none;
         }
 
         #n:hover {
             color: rgb(24, 189, 32);
-            
+
         }
 
         .logo {
@@ -317,7 +373,7 @@
             color: #fff;
             text-align: center;
             /* text-transform: uppercase; */
-            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
+            text-shadow: 1px 1px 0 rgba(0, 20, 0, 0.75);
             -webkit-transform: translate3d(-50%, -50%, 0);
             -moz-transform: translate3d(-50%, -50%, 0);
             -ms-transform: translate3d(-50%, -50%, 0);
