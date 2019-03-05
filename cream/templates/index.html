@@ -91,41 +91,46 @@
 
 <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
+                {% for ty in typ %}
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                    <a class="nav-link {% if forloop.counter == 1%}active{% endif %}" data-toggle="tab" href="#type{{ty.id}}">{{ty.name}}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#menu4">Call to order</a>
-                      </li>
+                {% endfor %}
               </ul>
             
               <!-- Tab panes -->
               <div class="tab-content">
-                <div id="home" class="container tab-pane active"><br>
-                  <h3>HOME</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                {% for ty in typ %}
+                <div id="type{{ty.id}}" class="container tab-pane {% if forloop.counter == 1%}active{% else %}fade{%endif%}">
+                    {% for cake in ty.cake_type.all %}
+                        <div class="col-md-4">
+                            <br>
+                            <div class="card border-secondary">
+                                <div class="card-body" style="background-color:#e9f0f5;">
+                                    <h4 class="card-title">
+                                        <div class="text-center">{{cake.name }}</div>
+                                    </h4>
+                                    <div class="text-center">
+                
+                                        <img src="{{cake.photo}}" id="img">
+                                    </div>
+                                    <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
+                                    <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
+                
+                                    <div class="text-right">
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        {% endfor %}
                 </div>
-                <div id="menu1" class="container tab-pane fade"><br>
-                  <h3>Menu 1</h3>
-                  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div id="menu2" class="container tab-pane fade"><br>
-                  <h3>Menu 2</h3>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                </div>
-                <div id="menu4" class="container tab-pane fade"><br>
-                    <h3>Contacts</h3>
-<h1 class="text-center">+254 7891 223 669</h1>                  </div>
+                {% endfor %}
               </div>
     <div class="row">
         
-        {% for cake in cake %}
+        <!-- {% for cake in cake %}
         <div class="col-md-4">
             <br>
             <div class="card border-secondary">
@@ -147,7 +152,7 @@
             </div>
         </div>
 
-        {% endfor %}
+        {% endfor %} -->
     </div>
     <hr>
     <div class="ab">
