@@ -1,25 +1,11 @@
 {% extends 'base.html'%} {% load bootstrap4 %} {% load staticfiles %} {{form.media}} {{ block.super }} {% block content %}
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
-<!-- <script>
-    UPLOADCARE_PUBLIC_KEY = 'a6ce1fa1d8e2e82fde95';
-    UPLOADCARE_IMAGES_ONLY = true;
-</script> -->
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+
 <!------ Include the above in your HEAD tag ---------->
 <header>
     <nav>
@@ -35,7 +21,7 @@
                 <li><a id="n" href="#about">About</a></li>
                 <li><a id="n" href="#">Blog</a></li>
                 <li><a id="n" href="#">Contact</a></li>
-                
+
             </ul>
         </div>
     </nav>
@@ -90,86 +76,70 @@
 </div>
 
 <div class="container-fluid">
+    <div class="header">
+
         <ul class="nav nav-tabs" role="tablist">
-                {% for ty in typ %}
-                <li class="nav-item">
-                    <a class="nav-link {% if forloop.counter == 1%}active{% endif %}" data-toggle="tab" href="#type{{ty.id}}">{{ty.name}}</a>
-                </li>
-                {% endfor %}
-              </ul>
-            
-              <!-- Tab panes -->
-              <div class="tab-content">
-                {% for ty in typ %}
-                <div id="type{{ty.id}}" class="container tab-pane {% if forloop.counter == 1%}active{% else %}fade{%endif%}">
-                    {% for cake in ty.cake_type.all %}
-                        <div class="col-md-4">
-                            <br>
-                            <div class="card border-secondary">
-                                <div class="card-body" style="background-color:#e9f0f5;">
-                                    <h4 class="card-title">
-                                        <div class="text-center">{{cake.name }}</div>
-                                    </h4>
-                                    <div class="text-center">
-                
-                                        <img src="{{cake.photo}}" id="img">
-                                    </div>
-                                    <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
-                                    <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
-                
-                                    <div class="text-right">
-                
-                                    </div>
-                                </div>
-                            </div>
+            {% for ty in typ %}
+            <li class="nav-item" id="more">
+                <a class="nav-link {% if forloop.counter == 1%}active{% endif %}" data-toggle="tab" href="#type{{ty.id}}">{{ty.name}}</a>
+            </li>
+            {% endfor %}
+            <li><a data-toggle="tab" href="#menu1">Call to order</a></li>
+        </ul>
+    </div>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        {% for ty in typ %}
+        <div id="type{{ty.id}}" class="container tab-pane {% if forloop.counter == 1%}active{% else %}fade{%endif%}">
+            {% for cake in ty.cake_type.all %}
+            <div class="col-md-4">
+                <br>
+                <div class="card border-secondary">
+                    <div class="card-body" style="background-color:#e9f0f5;">
+                        <h4 class="card-title">
+                            <div class="text-center">{{cake.name }}</div>
+                        </h4>
+                        <div class="text-center">
+
+                                <img src="{{cake.photo}}" id="img">
+
                         </div>
-                
-                        {% endfor %}
-                </div>
-                {% endfor %}
-              </div>
-    <div class="row">
-        
-        <!-- {% for cake in cake %}
-        <div class="col-md-4">
-            <br>
-            <div class="card border-secondary">
-                <div class="card-body" style="background-color:#e9f0f5;">
-                    <h4 class="card-title">
-                        <div class="text-center">{{cake.name }}</div>
-                    </h4>
-                    <div class="text-center">
+                        <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
+                        <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
 
-                        <img src="{{cake.photo}}" id="img">
-                    </div>
-                    <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
-                    <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
+                        <div class="text-right">
 
-                    <div class="text-right">
-
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        {% endfor %} -->
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <div id="menu1" class="tab-pane fade">
+<h1>Call any of these numbers to make your order</h1> 
+<h3>0792457542</h3>       
+<h3>0701543260</h3>       
+</div>
     </div>
+
     <hr>
     <div class="ab">
-    <div class="text-center">
-        <h1>About us</h1>
-    </div>
-    {% for i in about %}
-    <div class="container" id="about">
-        <div class="text-center" >
-            <img src="{{i.photo}}" alt="" style="border-radius:50%; height: 80px; width: 80px;">
+        <div class="text-center">
+            <h1>About us</h1>
         </div>
+        {% for i in about %}
+        <div class="container" id="about">
+            <div class="text-center">
+                <img src="{{i.photo}}" alt="" style="border-radius:50%; height: 80px; width: 80px;">
+            </div>
+        </div>
+        <div class="text-center">
+            {{i.about}}
+        </div>
+        {% endfor %}
     </div>
-    <div class="text-center">
-        {{i.about}}
-    </div>
-    {% endfor %}
-</div>
 
     <hr>
     <div class="text-center">
@@ -202,15 +172,16 @@
     </script>
 
     <style>
-        .ab{
+        .ab {
             font-size: 18px;
-            background-size: cover;
-          
+
+
         }
 
-        .more{
+        .more {
             font-family: 'Caveat Brush', cursive;
         }
+
         #menu {
             z-index: -1;
         }
@@ -256,7 +227,7 @@
         }
 
         nav.black ul {
-            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.911);
         }
 
         nav ul li {
