@@ -103,3 +103,24 @@ class About(models.Model):
 
     def delete_about(self):
         self.delete()
+
+class What_we_do(models.Model):
+    big_photo = ImageField(blank=True, manual_crop="")
+    What_we_do = models.TextField(null=True)
+    objects = models.Manager()
+    
+    def __str__(self):
+        return self.What_we_do
+
+
+    def save_What_we_do(self):
+        self.save()
+
+    def delete_What_we_do(self):
+        self.delete()
+
+class Vsmall_pic(models.Model):
+    small_photos = ImageField(blank=True, manual_crop="")
+    objects = models.Manager()
+    
+ 

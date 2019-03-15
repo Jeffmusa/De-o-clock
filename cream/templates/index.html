@@ -1,293 +1,653 @@
 {% extends 'base.html'%} {% load bootstrap4 %} {% load staticfiles %} {{form.media}} {{ block.super }} {% block content %}
 
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<body>
+        <link rel="stylesheet" href="css/font-awesome-animation.min.css">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <h3 class="my-heading ">De cake<span class="bg-main">O'clock</span></h3>
+            </a>
+           
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+            <div id="main">
+                <a href="javascript:void(0)" class="openNav"><span class="fa fa-bars" onclick="openNav()"></span></a>
+            </div>
 
 
-<!------ Include the above in your HEAD tag ---------->
-<header>
-    <nav>
-        <div class="menu-icon">
-            <i class="fa fa-bars fa-2x"></i>
-        </div>
-        <div class="logo">
-            De cake o'clock
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a id="n" href="#">Home</a></li>
-                <li><a id="n" href="#about">About</a></li>
-                <li><a id="n" href="#">Blog</a></li>
-                <li><a id="n" href="#">Contact</a></li>
 
-            </ul>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <ul class="mob-ul">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Groups</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Marketplace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Featured Artists</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+
+
+                </ul>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-link">
+                        <a class="" href="#">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="" href="#">About</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="" href="#">Blog</a>
+                    </li>
+                    <li class="nav-link">
+                        <a class="" href="#">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+
         </div>
     </nav>
-</header>
-<div class="carousel fade-carousel carousel-fade slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-    <!-- Overlay -->
-    <div class="overlay"></div>
-
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#bs-carousel" data-slide-to="1"></li>
-        <li data-target="#bs-carousel" data-slide-to="2"></li>
 
 
-    </ol>
+        <div class="carousel fade-carousel carousel-fade slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+            <!-- Overlay -->
+            <div class="overlay"></div>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        {% for caro in c1 %}
-        <div class="item slides active">
-            <div class="slide-1" style="background-image: url('{{ caro.photo }}')"></div>
-            <div class="hero">
-                <hgroup>
-                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
-                    <h3 class="more">{{caro.more}}</h3>
-                </hgroup>
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#bs-carousel" data-slide-to="1"></li>
+                <li data-target="#bs-carousel" data-slide-to="2"></li>
+
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                {% for caro in c1 %}
+                <div class="item slides active">
+                    <div class="slide-1" style="background-image: url('{{ caro.photo }}')"></div>
+                    <div class="hero">
+                        <hgroup>
+                            <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                            <h3 class="more">{{caro.more}}</h3>
+                            <div class="scroll-down">
+                                    <a class="btn btn-default btn-scroll floating-arrow" href="#gobottom" id="bottom"><img style="height:40px;width: 30px;"  src="https://www.shareicon.net/download/2015/11/08/668896_arrows_512x512.png" alt=""></a>
+                                </div>
+                        </hgroup>
+                    </div>
+                </div>
+                {% endfor %} {% for caro in c2 %}
+                <div class="item slides">
+                    <div class="slide-2" style="background-image: url('{{ caro.photo }}')"></div>
+                    <div class="hero">
+                        <hgroup>
+                            <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                            <h3 class="more">{{caro.more}}</h3>
+                            <div class="scroll-down">
+                                    <a class="btn btn-default btn-scroll floating-arrow" href="#gobottom" id="bottom"><img style="height:40px;width: 30px;"  src="https://www.shareicon.net/download/2015/11/08/668896_arrows_512x512.png" alt=""></a>
+                                </div>
+                        </hgroup>
+                    </div>
+                </div>
+                {% endfor %} {% for caro in c3 %}
+                <div class="item slides">
+                    <div class="slide-3" style="background-image: url('{{ caro.photo }}')"></div>
+                    <div class="hero">
+                        <hgroup>
+                            <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
+                            <h3 class="more">{{caro.more}}</h3>
+                        </hgroup>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="scroll-down">
+                                <a class="btn btn-default btn-scroll floating-arrow" href="#gobottom" id="bottom"><img style="height:40px;width: 30px;"  src="https://www.shareicon.net/download/2015/11/08/668896_arrows_512x512.png" alt=""></a>
+                            </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %} {% for caro in c2 %}
-        <div class="item slides">
-            <div class="slide-2" style="background-image: url('{{ caro.photo }}')"></div>
-            <div class="hero">
-                <hgroup>
-                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
-                    <h3 class="more">{{caro.more}}</h3>
-                </hgroup>
+  
+  
+    <section class="testimonials" id="gobottom">
+        <div class="container">
+            <div class="row">
+                {% for w in we %}
+                <div class="col-md-4 mb-3 wow bounceInUp" data-wow-duration="2s">
+                    <div class="big-img">
+                        <img src="{{w.big_photo}}" class="img-fluid">
+                    
+                    </div>
+                </div>
+               
+                <div class="col-md-8">
+                    <div class="inner-section wow fadeInUp">
+                        <h3>Know <span class="bg-main">De cake O'clock</span></h3>
+                        <br>
+                        <p class="text-justify">{{w.What_we_do}}</p>
+
+                        <div class="linear-grid">
+                            <div class="row">
+                                {% for s in v %}
+                                <div class="col-sm-6 col-md-3 mb-2 wow bounceInUp" data-wow-duration="1.4s">
+                                    <img src="{{s.small_photos}}" class="img-thumbnail" >
+                                </div>
+                              {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %} {% for caro in c3 %}
-        <div class="item slides">
-            <div class="slide-3" style="background-image: url('{{ caro.photo }}')"></div>
-            <div class="hero">
-                <hgroup>
-                    <h1 style="font-family: 'Paytone One', sans-serif;">{{caro.text}}</h1>
-                    <h3 class="more">{{caro.more}}</h3>
-                </hgroup>
+    </section>
+
+    <section class="testimonials mybg-events">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 wow fadeInUp">
+                    <h3 class="title-heading text-center">MOJOAVE EVENTS</h3>
+                    <p class="myp text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                        took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="row wow slideInLeft" data-wow-duration="3s">
+                <div class="col-md-4 mb-3">
+                    <div class="big-img2">
+                        <img src="https://images.pexels.com/photos/167527/pexels-photo-167527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+                    </div>
+
+                </div>
+                <div class="col-md-8">
+                    <div class="inner-section">
+                        <div class="my-grid">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4 mb-3">
+
+                                    <img src="https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+
+                                </div>
+                                <div class="col-sm-6 col-md-8 mb-3 ">
+
+                                    <img src=" https://images.pexels.com/photos/164693/pexels-photo-164693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+
+                                </div>
+
+                                <div class="col-md-8 mb-3">
+                                    <div class="text-block">
+                                        <h5 class="events-heading">Lorem ipsum is simply dummy text of the printing and typesetting
+                                            industry.</h5>
+                                        <p class="myp-font">contrary to popular belief, Lorem Ipsum is simply dummy text
+                                            of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                            standard dummy text ever since the 1500s, when an unknown printer took a galley
+                                            of type and scrambled it to make a type specimen book and more recently with
+                                            desktop publishing software like Aldus PageMaker.</p>
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 ">
+
+                                    <img src="https://images.pexels.com/photos/1150837/pexels-photo-1150837.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-</div>
+    </section>
 
-<div class="container-fluid">
-    <div class="header">
+    <section class="testimonials text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto wow fadeInUp">
+                    <h3 class="text-center font-weight-bold">JOIN MOJO<span class="bg-main">AVE</span> GROUPS</h3>
+                    <p class=" text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/258732/pexels-photo-258732.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
 
-        <ul class="nav nav-tabs" role="tablist">
-            {% for ty in typ %}
-            <li class="nav-item" id="more">
-                <a class="nav-link {% if forloop.counter == 1%}active{% endif %}" data-toggle="tab" href="#type{{ty.id}}">{{ty.name}}</a>
-            </li>
-            {% endfor %}
-            <li><a data-toggle="tab" href="#menu1">Call to order</a></li>
-        </ul>
-    </div>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        {% for ty in typ %}
-        <div id="type{{ty.id}}" class="container tab-pane {% if forloop.counter == 1%}active{% else %}fade{%endif%}">
-            {% for cake in ty.cake_type.all %}
-            <div class="col-md-4">
-                <br>
-                <div class="card border-secondary">
-                    <div class="card-body" style="background-color:#e9f0f5;">
-                        <h4 class="card-title">
-                            <div class="text-center">{{cake.name }}</div>
-                        </h4>
-                        <div class="text-center">
+                            <h4 class="card-title text-center">CATHERINA GAIL</h4>
 
-                                <img src="{{cake.photo}}" id="img">
+                            <div class="card-text text-center">
+                                <div class="social-icons">
+                                    <a href="#" class="btn btn-circle my-social-btn fb"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn google"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting</small>
 
                         </div>
-                        <h6 class="card-title"><b><em>Description: {{cake.description | lower}}</em> </b></h6>
-                        <h5 class="card-title"><b> Price: Ksh:{{cake.price}}.00</b></h5>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
 
-                        <div class="text-right">
+                            <h4 class="card-title text-center">HARVEY RUBE</h4>
+
+                            <div class="card-text text-center">
+                                <div class="social-icons">
+                                    <a href="#" class="btn btn-circle my-social-btn fb"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn google"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/756242/pexels-photo-756242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
+
+                            <h4 class="card-title text-center">JANET PRIS</h4>
+
+                            <div class="card-text text-center">
+                                <div class="social-icons">
+                                    <a href="#" class="btn btn-circle my-social-btn fb"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn google"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting</small>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images.pexels.com/photos/167445/pexels-photo-167445.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
+
+                            <h4 class="card-title text-center">KEVIN WARD</h4>
+
+                            <div class="card-text text-center">
+                                <div class="social-icons">
+                                    <a href="#" class="btn btn-circle my-social-btn fb"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-circle my-social-btn google"><i class="fa fa-google"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <small>Lorem Ipsum is simply dummy text of the printing and typesetting</small>
 
                         </div>
                     </div>
                 </div>
             </div>
-
-            {% endfor %}
         </div>
-        {% endfor %}
-        <div id="menu1" class="tab-pane fade">
-<h1>Call any of these numbers to make your order</h1> 
-<h3>0792457542</h3>       
-<h3>0701543260</h3>       
-</div>
-    </div>
+    </section>
 
-    <hr>
-    <div class="ab">
-        <div class="text-center">
-            <h1>About us</h1>
-        </div>
-        {% for i in about %}
-        <div class="container" id="about">
-            <div class="text-center">
-                <img src="{{i.photo}}" alt="" style="border-radius:50%; height: 80px; width: 80px;">
+    <section class="testimonials text-center mybg-music">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow fadeInUp">
+                    <h3 class="title-heading text-center font-weight-bold">MOJOAVE LATEST MUSIC</h3>
+                    <p class="myp text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                        took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/838696/pexels-photo-838696.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/838696/pexels-photo-838696.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/1047930/pexels-photo-1047930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/1047930/pexels-photo-1047930.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/164693/pexels-photo-164693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/164693/pexels-photo-164693.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/876713/pexels-photo-876713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/876713/pexels-photo-876713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/258732/pexels-photo-258732.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/258732/pexels-photo-258732.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/210887/pexels-photo-210887.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/756242/pexels-photo-756242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/756242/pexels-photo-756242.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/167589/pexels-photo-167589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/167589/pexels-photo-167589.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/167626/pexels-photo-167626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/167626/pexels-photo-167626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-2 mt-4 gal-item wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="music-gal item box">
+                        <a href="https://images.pexels.com/photos/167527/pexels-photo-167527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="fancybox"
+                            rel="ligthbox">
+                            <img class="img-fluid" src="https://images.pexels.com/photos/167527/pexels-photo-167527.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="text-center">
-            {{i.about}}
-        </div>
-        {% endfor %}
-    </div>
+    </section>
 
-    <hr>
-    <div class="text-center">
-        <ul class="social-network social-circle">
-            <li><a id="a" href="#" class="icoRss" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-            <li><a id="a" href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-            <li><a id="a" href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a id="a" href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-            <li><a id="a" href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-        </ul>
-    </div>
+    <section class="testimonials bg-light" id="marketplace">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto wow fadeInUp">
+                    <h3 class="text-center font-weight-bold">MOJO<span class="bg-main">AVE</span> MARKET PLACE</h3>
+                    <p class=" text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-4 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top h-262" src="https://images.pexels.com/photos/449627/pexels-photo-449627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
+
+                            <h4 class="card-title">Lorem Ipsum Dolor Site Amet</h4>
+
+                            <div class="card-text">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                    has been the industry's.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small>$ 170</small>
+                            <a href="#" class="pull-right">More Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top h-262" src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+                        <div class="card-block">
+
+                            <h4 class="card-title">Lorem Ipsum Dolor Site Amet</h4>
+
+                            <div class="card-text">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                    has been the industry's.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small>$ 170</small>
+                            <a href="#" class="pull-right">More Info</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-4 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="card">
+                        <img class="card-img-top h-262" src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&h=650&w=940">
+                        <div class="card-block">
+
+                            <h4 class="card-title ">Lorem Ipsum Dolor Site Amet</h4>
+
+                            <div class="card-text ">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                    has been the industry's.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small>$ 170</small>
+                            <a href="#" class="pull-right">More Info</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials text-center ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto wow fadeInUp">
+                    <h3 class="text-center font-weight-bold">MOJO<span class="bg-main">AVE</span> FEATURED ARTIST</h3>
+                    <p class=" text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-6 mt-4 wow bounceInUp" data-wow-duration="1.4s">
+                    <div class="big-img-3">
+                        <img src="https://images.pexels.com/photos/167480/pexels-photo-167480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-6 mt-4">
+                    <div class="my-right-text wow fadeInUp">
+
+                        <p class="text-justify font-italic">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                            survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+                            unchanged. It was popularised in the 1960s with the release of Letraset sheets. remaining essentially
+                            unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+                            Ipsum passages, Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                            when an unknown.</p>
+
+                        <a href="#" class="link-color">Michael U</a>
+                        <p class="text-muted">Lorem Ipsum Dolor Sit Amet</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 text-center text-lg-left my-auto  wow zoomIn">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item">
+                            <a href="#">Contact</a>
+                        </li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Mojoave 2018. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-right my-auto  wow zoomIn">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3">
+                            <a href="#">
+                                <i class="fa fa-facebook fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                            <a href="#">
+                                <i class="fa fa-twitter fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-instagram fa-2x fa-fw"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $(".menu-icon").on("click", function () {
-                $("nav ul").toggleClass("showing");
+        new WOW().init();
+    </script>
+    <script>
+        $(window).scroll(function () {
+
+
+            var topWindow = $(window).scrollTop();
+            var topWindow = topWindow * 1.5;
+            var windowHeight = $(window).height();
+            var position = topWindow / windowHeight;
+            position = 1 - position;
+
+            $('#bottom').css('opacity', position);
+
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.display = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginRight = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+
+        $(window).on("scroll", function () {
+            if ($(this).scrollTop() > 10) {
+                $("nav.navbar").addClass("mybg-dark");
+                $("nav.navbar").addClass("navbar-shrink");
+
+
+            } else {
+                $("nav.navbar").removeClass("mybg-dark");
+                $("nav.navbar").removeClass("navbar-shrink");
+
+            }
+
+
+
+        });
+
+        $(function () {
+            $('#bottom').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 500);
+                        return false;
+                    }
+                }
             });
         });
 
-        // Scrolling Effect
 
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('black');
-            }
-
-            else {
-                $('nav').removeClass('black');
-            }
-        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+        });
     </script>
 
     <style>
-        .ab {
-            font-size: 18px;
-
-
-        }
-
-        .more {
-            font-family: 'Caveat Brush', cursive;
-        }
-
-        #menu {
-            z-index: -1;
-        }
-
-        #n {
-            text-decoration: none;
-        }
-
-        #n:hover {
-            color: rgb(24, 189, 32);
-
-        }
-
-        .logo {
-            line-height: 60px;
-            position: fixed;
-            float: left;
-            margin: 16px 46px;
-            color: rgb(134, 211, 9);
-            font-weight: bold;
-            font-size: 20px;
-            letter-spacing: 2px;
-        }
-
-        nav {
-            position: fixed;
-            width: 100%;
-            line-height: 60px;
-            z-index: 1;
-        }
-
-        nav ul {
-            line-height: 60px;
-            list-style: none;
-            background: rgba(241, 23, 23, 0);
-            overflow: hidden;
-            color: #fff;
-            padding: 0;
-            text-align: right;
-            margin: 0;
-            padding-right: 40px;
-            transition: 1s;
-        }
-
-        nav.black ul {
-            background: rgba(0, 0, 0, 0.911);
-        }
-
-        nav ul li {
-            display: inline-block;
-            padding: 16px 40px;
-            ;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-        }
-
-        .menu-icon {
-            line-height: 60px;
-            width: 100%;
-            background: #000;
-            text-align: right;
-            box-sizing: border-box;
-            padding: 15px 24px;
-            cursor: pointer;
-            color: #fff;
-            display: none;
-        }
-
-        @media(max-width: 786px) {
-
-            .logo {
-                position: fixed;
-                top: 0;
-                margin-top: 16px;
-            }
-
-            nav ul {
-                max-height: 0px;
-                background: #000;
-            }
-
-            nav.black ul {
-                background: #000;
-            }
-
-            .showing {
-                max-height: 34em;
-            }
-
-            nav ul li {
-                box-sizing: border-box;
-                width: 100%;
-                padding: 24px;
-                text-align: center;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
-        }
-
         .carousel-fade .carousel-inner .item {
             opacity: 0;
             -webkit-transition-property: opacity;
@@ -411,153 +771,827 @@
             background-repeat: no-repeat;
         }
 
-        /* .fade-carousel .slides .slide-1 {
-            background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+
+        body {
+            font-family: 'Open Sans', sans-serif !important;
+            background: #fff;
+            color: #222;
         }
 
-        .fade-carousel .slides .slide-2 {
-            background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+        .navbar-shrink {
+            padding-top: 0;
+            padding-bottom: 0;
         }
 
-        .fade-carousel .slides .slide-3 {
-            background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
-        } */
-
-        /********************************/
-        /*          Media Queries       */
-        /********************************/
-        @media screen and (min-width: 980px) {
-            .hero {
-                width: 980px;
-            }
-        }
-
-        @media screen and (max-width: 640px) {
-            .hero h1 {
-                font-size: 4em;
-            }
-        }
-
-        img {
-            height: 280px;
-            width: 300px;
-
+        .mybg-dark {
+            background: #000000 !important;
         }
 
 
 
 
-        @media screen and (max-width: 800px) {
-            .container-fluid {
-                background-color: rgb(230, 104, 20);
-            }
-            img {
-                height: 150px;
-                width: 180px;
-            }
+        .testimonials {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+
         }
 
-
-        /*=========================
-  Icons
- ================= */
-
-        /* footer social icons */
-        ul.social-network {
-            list-style: none;
-            display: inline;
-            margin-left: 0 !important;
-            padding: 0;
+        .myform-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         }
 
-        ul.social-network li {
-            display: inline;
-            margin: 0 5px;
+        button.btn.btn-light {
+            position: absolute;
+            background: transparent;
+            border: none;
+            height: 38px;
+            right: 23px;
         }
 
-
-        /* footer social icons */
-        .social-network #a.icoRss:hover {
-            background-color: rgb(231, 19, 203);
-        }
-
-        .social-network #a.icoFacebook:hover {
-            background-color: #3B5998;
-        }
-
-        .social-network #a.icoTwitter:hover {
-            background-color: #33ccff;
-        }
-
-        .social-network #a.icoGoogle:hover {
-            background-color: #BD3518;
-        }
-
-        .social-network #a.icoVimeo:hover {
-            background-color: #0590B8;
-        }
-
-        .social-network #a.icoLinkedin:hover {
-            background-color: #007bb7;
-        }
-
-        .social-network a.icoRss:hover i,
-        .social-network a.icoFacebook:hover i,
-        .social-network a.icoTwitter:hover i,
-        .social-network a.icoGoogle:hover i,
-        .social-network a.icoVimeo:hover i,
-        .social-network a.icoLinkedin:hover i {
-            color: rgb(255, 250, 250);
-        }
-
-        a.socialIcon:hover,
-        .socialHoverClass {
-            color: rgb(238, 17, 54);
-        }
-
-        .social-circle li a {
-            display: inline-block;
-            position: relative;
-            margin: 0 auto 0 auto;
-            -moz-border-radius: 50%;
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-            text-align: center;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-        }
-
-        .social-circle li i {
-            margin: 0;
-            line-height: 50px;
-            text-align: center;
-        }
-
-        .social-circle li a:hover i,
-        .triggeredHover {
-            -moz-transform: rotate(360deg);
-            -webkit-transform: rotate(360deg);
-            -ms--transform: rotate(360deg);
-            transform: rotate(360deg);
-            -webkit-transition: all 0.2s;
-            -moz-transition: all 0.2s;
-            -o-transition: all 0.2s;
-            -ms-transition: all 0.2s;
-            transition: all 0.2s;
-        }
-
-        .social-circle i {
+        a.btn.btn-default.btn-scroll {
+            border: 2px solid #fff;
             color: #fff;
-            -webkit-transition: all 0.8s;
-            -moz-transition: all 0.8s;
-            -o-transition: all 0.8s;
-            -ms-transition: all 0.8s;
-            transition: all 0.8s;
+            border-radius: 100%;
         }
 
-        #a {
-            background-color: rgb(185, 174, 174);
+
+
+        .big-img img {
+            height: 325px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .inner-section {
+            position: relative;
+        }
+
+        .container.slider-top-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn-login {
+            width: 138px;
+            background: #1fc6d8 !important;
+            border: 1px solid #1fc6d8 !important;
+        }
+
+        .btn-login:hover {
+            background: #3683a1 !important;
+            border: 1px solid #1fc6d8 !important;
+        }
+
+        .mfa-white {
+            color: #fff !important;
+        }
+
+        h3.my-heading {
+            font-family: 'Kaushan Script', cursive;
+            color: #fff;
+            font-weight: bold;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        p.myp-slider.text-center {
+            color: #fff;
+        }
+
+        .btn-register {
+            width: 138px;
+            background: #1fc6d8 !important;
+            border: 1px solid #1fc6d8 !important;
+        }
+
+
+        .btn-register:hover {
+            background: #3683a1 !important;
+            border: 1px solid #1fc6d8 !important;
+        }
+
+        .btn-join {
+            background: #1fc6d8 !important;
+            border: 1px solid #1fc6d8 !important;
+        }
+
+        section#about {
+            width: 100%;
+            padding-top: 2.1rem;
+            padding-bottom: 2.1rem;
+        }
+
+        .btn-circle {
+            border-radius: 50%;
+        }
+
+        .my-social-btn {
+            background: lightgrey;
+        }
+
+        .card:hover .my-social-btn.fb {
+            background: #205b9f;
+        }
+
+        .card:hover .my-social-btn.twitter {
+            background: #00ace3;
+        }
+
+        .card:hover .my-social-btn.google {
+            background: #ff3921;
+        }
+
+        /*
+a.btn.btn-circle.my-social-btn.fb:hover {
+    background: #205b9f;
+}
+
+a.btn.btn-circle.my-social-btn.twitter:hover {
+    background: #00ace3;
+}
+
+a.btn.btn-circle.my-social-btn.google:hover {
+    background: #ff3921;
+}
+*/
+        a.btn.btn-circle.my-social-btn {
+            color: #fff;
+            height: 40px;
+            width: 40px;
+        }
+
+        .inner-section h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .inner-section h3:after {
+            content: '';
+            position: absolute;
+            border-bottom: 4px solid #008ba3;
+            width: 100%;
+            max-width: 10%;
+            top: 37px;
+            left: 0;
+        }
+
+        span.bg-main {
+            color: #008ba3;
+        }
+
+        hr.my-border {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 2px solid #008ba3;
+            width: 117px;
+        }
+
+        .linear-grid img {
+            width: 100%;
+            height: 124px;
+            object-fit: cover;
+        }
+
+        .mybg-events {
+            background: url('https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .h-262 {
+            height: 262px !important;
+        }
+
+        h3.title-heading.text-center {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        p.myp.text-center {
+            color: #fff;
+            font-size: 14px;
+            margin-bottom: 3rem;
+        }
+
+        .big-img2 img {
+            height: 472px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .my-grid img {
+            height: 228px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+
+
+
+
+        .text-block {
+            min-height: 228px;
+            height: auto;
+            background: #fff;
+            padding: 15px;
+        }
+
+        h5.events-heading {
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        p.myp-font {
+            font-size: 15px;
+        }
+
+        section#group {
+            background: #fff;
+            height: 100%;
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .card {
+            font-size: 1em;
+            overflow: hidden;
+            padding: 0;
+            border: none !important;
+            border-radius: .28571429rem;
+        }
+
+        .card:hover {
+            color: #222 !important;
+            box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+        }
+
+        .card-block {
+            font-size: 1em;
+            position: relative;
+            margin: 0;
+            padding: 1em;
+            border: none !important;
+            border-top: 1px solid rgba(34, 36, 38, .1);
+            box-shadow: none;
+        }
+
+        .card-img-top {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .card-title {
+            font-size: 1.28571429em;
+            font-weight: 700;
+            line-height: 1.2857em;
+        }
+
+        .card-text {
+            clear: both;
+            margin-top: .5em;
+            color: rgba(0, 0, 0, .68);
+        }
+
+        .card-footer {
+            font-size: 1em;
+            position: static;
+            top: 0;
+            left: 0;
+            max-width: 100%;
+            padding: .75em 1em;
+            color: rgba(0, 0, 0, .4);
+            border-top: 1px solid rgba(0, 0, 0, .05) !important;
+            background: #fff;
+        }
+
+        .card-inverse .btn {
+            border: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .mybg-music {
+            background: url('https://images.pexels.com/photos/1267317/pexels-photo-1267317.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        section#marketplace {
+            background: #f7f7f7;
+            height: 100%;
+            width: 100%;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        section#marketplace .card {
+            font-size: 1em;
+            overflow: hidden;
+            padding: 0;
+            border: none;
+            border-radius: .28571429rem;
+            box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+        }
+
+        section#artist {
+            background: #fff;
+            height: 100%;
+            width: 100%;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        a.link-color {
+            color: #008ba3;
+            font-weight: bold;
+        }
+
+        .my-right-text {
+            padding-top: 3rem;
+        }
+
+
+        /***music gallery***/
+
+        .gal-item {
+            overflow: hidden;
+        }
+
+        .gal-item .box {
+
+            overflow: hidden;
+        }
+
+        .box img {
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
+            -o-object-fit: cover;
+        }
+
+        /****/
+        .item {
+            position: relative;
+        }
+
+        .item img {
+            max-width: 100%;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .item:hover img {
+            -moz-transform: scale(1.4);
+            -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+        }
+
+
+
+        /*sidebar navigation*/
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            font-size: 36px;
+            margin-right: 15px;
+        }
+
+        #main {
+            display: none;
+        }
+
+        #main {
+            float: right;
+            transition: margin-right .5s;
+
+        }
+
+        a.openNav {
+            font-size: 26px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .sidenav .nav-link {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .mob-ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidenav li {
+            padding: 0 3px !important;
+            position: relative;
+        }
+
+        .sidenav li a {
+            padding: 10px 15px;
+            text-transform: uppercase;
+        }
+
+        .sidenav ul li:hover .nav-link {
+            color: #008ba3;
+        }
+
+        li.nav-item a:hover {
+            background: #008ba3;
+            color: #ffffff !important;
+        }
+
+
+
+        .floating-arrow {
+            -webkit-animation: floating-arrow 1.6s infinite ease-in-out 0s;
+            -o-animation: floating-arrow 1.6s infinite ease-in-out 0s;
+            animation: floating-arrow 1.6s infinite ease-in-out 0s;
+        }
+
+        @keyframes floating-arrow {
+            from {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            65% {
+                -webkit-transform: translateY(11px);
+                transform: translateY(11px);
+            }
+            to {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+
+        footer.footer {
+            padding-top: 4rem;
+            padding-bottom: 4rem
+        }
+
+        li.list-inline-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        /*-------------------responsive-----------------*/
+
+        @media screen and (max-width: 520px) {
+            ::placeholder {
+                font-size: 10px;
+            }
+            .scroll-down {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                top: 45px;
+            }
+
+            .text-block {
+                padding: 15px;
+            }
+            .linear-grid img {
+                width: 100%;
+                height: 181px;
+            }
+            .my-grid img {
+                width: 100%;
+            }
+
+
+        }
+
+        @media screen and (max-width: 767px) {
+            .btn-login {
+                width: 100%;
+            }
+            .btn-register {
+                width: 100%;
+            }
+        }
+
+
+
+        @media only screen and (min-width:2560px) {}
+
+        @media only screen and (min-width:1600px) and (max-width:1920px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+        }
+
+        @media only screen and (min-width:1440px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+        }
+
+        @media only screen and (max-width: 1280px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            h5.events-heading {
+                font-size: 15px;
+            }
+            p.myp-font {
+                font-size: 13px;
+            }
+        }
+
+        @media only screen and (min-width: 960px) and (max-width: 1023px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+
+        }
+
+        @media only screen and (max-width:736px) and (orientation:landscape) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+        }
+
+        @media only screen and (max-width:667px) and (orientation:landscape) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+        }
+
+        @media only screen and (max-width:568px) and (orientation:landscape) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 767px) {
+            h5.events-heading {
+                font-size: 20px;
+            }
+            p.myp-font {
+                font-size: 15px;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+            .box img {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 480px) and (max-width: 599px) {
+            .inner-section h3 {
+                font-size: 18px;
+            }
+            h5.events-heading {
+                font-size: 15px;
+            }
+            .inner-section p {
+                font-size: 13px;
+                text-align: justify;
+            }
+            section#marketplace img {
+                object-fit: cover;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+            .box img {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 321px) and (max-width: 479px) {
+            .inner-section h3 {
+                font-size: 18px;
+            }
+            h5.events-heading {
+                font-size: 15px;
+            }
+            .inner-section p {
+                font-size: 13px;
+                text-align: justify;
+            }
+            section#marketplace img {
+                object-fit: cover;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+            .box img {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (max-width:568px) and (orientation:landscape) {
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+            .box img {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            .inner-section h3 {
+                font-size: 18px;
+            }
+            h5.events-heading {
+                font-size: 15px;
+            }
+            .inner-section p {
+                font-size: 13px;
+                text-align: justify;
+            }
+            section#marketplace img {
+                object-fit: cover;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+            #main {
+                display: block;
+            }
+            .header-wrap .navbar .nav-link {
+                color: #fff;
+            }
+            .mob-ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .header-wrap .sub-menu {
+                width: 250px;
+            }
+            .box img {
+                height: 100%;
+            }
         }
     </style>
-    {% endblock %}
+</body>
+
+
+{% endblock %}
